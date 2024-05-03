@@ -26,7 +26,7 @@ public class Server {
                 try (Socket accept = server.accept()) {
                     Path rootPath = Path.of(resource.toURI());
                     if(!Files.exists(rootPath)){
-                        sendResponse(accept.getOutputStream(),"404 Not Found!");
+                        sendResponse(accept.getOutputStream(),"404 Not Found!".getBytes());
                     }
 
                     Map<String, Path> pathMap = generatePath(rootPath);
@@ -38,7 +38,7 @@ public class Server {
                     if (resultPath != null) {
                         sendResponse(accept.getOutputStream(), pathMap.get(requestUrl));
                     } else {
-                        sendResponse(accept.getOutputStream(), "404 Not Found");
+                        sendResponse(accept.getOutputStream(), "404 Not Found".getBytes());
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -99,16 +99,12 @@ public class Server {
 
     private static void sendResponse(OutputStream outputStream, Path path) throws IOException {
 
-        byte[] bytes = Files.readAllBytes(path);
-        sendResponse(outputStream, bytes);
-    }
-
-    private static void sendResponse(OutputStream outputStream, String text) throws IOException {
-
-        outputStream.write("HTTP/1.1 200 OK\r\n".getBytes());
-        outputStream.write("\r\n".getBytes());
-        outputStream.write(text.getBytes());
-        outputStream.flush();
+        if(Files.exists(path)){
+            byte[] bytes = Files.readAllBytes(path);
+            sendResponse(outputStream, bytes);
+        }else {
+            sendResponse(outputStream,"404 Not Found!".getBytes());
+        }
     }
 
     private static void sendResponse(OutputStream outputStream, byte[] bytes) throws IOException {
