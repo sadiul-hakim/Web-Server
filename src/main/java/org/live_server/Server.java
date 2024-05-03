@@ -99,17 +99,8 @@ public class Server {
 
     private static void sendResponse(OutputStream outputStream, Path path) throws IOException {
 
-        String fileName = path.toString();
-
-        if (fileName.endsWith(".html") || fileName.endsWith(".css") || fileName.endsWith(".js")) {
-            String text = Files.readString(path);
-            sendResponse(outputStream, text);
-        } else if (fileName.endsWith(".jpg") || fileName.endsWith(".png")) {
-            byte[] bytes = Files.readAllBytes(path);
-            sendResponse(outputStream, bytes);
-        } else {
-            sendResponse(outputStream, "404 Not Found");
-        }
+        byte[] bytes = Files.readAllBytes(path);
+        sendResponse(outputStream, bytes);
     }
 
     private static void sendResponse(OutputStream outputStream, String text) throws IOException {
