@@ -1,11 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
 </head>
 <body>
@@ -36,24 +33,28 @@
 </nav>
 
 <!--Navbar ends-->
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-5 mx-auto">
             <form action="#" class="card p-4">
-                <h4 class="my-2">Login Page</h4>
+                <h4 class="my-2">Register Page</h4>
                 <div>
                     <label for="username">Username</label>
-                    <input type="email" name="username" id="username" class="form-control"/>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Sadiul Hakim"/>
+                </div>
+                <br/>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="example@mail.com"/>
                 </div>
                 <br/>
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" class="form-control"/>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="********"/>
                 </div>
                 <br/>
-                <a href="register.html" class="my-1">Create a Account</a>
-                <button class="btn btn-dark">Login</button>
+                <a href="login.html" class="my-1">Already have an account? Login.</a>
+                <button class="btn btn-dark">Register</button>
             </form>
         </div>
     </div>
