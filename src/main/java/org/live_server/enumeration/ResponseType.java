@@ -1,4 +1,4 @@
-package org.live_server;
+package org.live_server.enumeration;
 
 public enum ResponseType {
     HTML,

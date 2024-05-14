@@ -1,6 +1,6 @@
 package org.live_server.annotations;
 
-import org.live_server.ResponseType;
+import org.live_server.enumeration.ResponseType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
